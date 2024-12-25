@@ -21,7 +21,20 @@ class filter:
 
         return filteredSignal
     
-    def get_gausian_filtered_signal(self, signal, fullWidthHalfMaximum):
+    def draw_gaussian_distribution(self, fullWidthHalfMaximum):
+        gTime = np.arange(-self.filterOrder, self.filterOrder + 1)
+        gaussian_kernel = np.exp(-(4 * np.log(2) * (gTime**2)) / (fullWidthHalfMaximum**2))
+        gaussian_kernel /= np.sum(gaussian_kernel) 
+        plt.figure(figsize=(5, 3))
+        plt.plot(gTime, gaussian_kernel, label='Gaussian Kernel')
+        plt.title('Gaussian Distribution (Probability Density Function)')
+        plt.xlabel('x')
+        plt.ylabel('Probability Density')
+        plt.grid()
+        plt.legend()
+        plt.show()
+
+    def get_gaussian_filtered_signal(self, signal, fullWidthHalfMaximum):
         numSamples = len(signal)
         filteredSignal = np.zeros(numSamples)
 
@@ -38,4 +51,5 @@ class filter:
     def draw_filtered_signal(self, filteredSignal):
         time = np.arange(0, len(filteredSignal)/self.sampleRate, 1/self.sampleRate)
         plt.plot(time, filteredSignal, label='Filtered Signal', color = 'red')
+        plt.legend()
         
