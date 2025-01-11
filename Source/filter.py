@@ -53,10 +53,10 @@ class filter:
         supraThreshold_indices = np.where(signal > threshold)[0]
         filteredSignal = signal.copy()
 
-        for idx in supraThreshold_indices:
-            lowbnd = max(0, idx - self.filterOrder)
-            uppbnd = min(idx + self.filterOrder + 1, numSamples)
-            filteredSignal[idx] = np.median(signal[lowbnd:uppbnd])
+        for i in supraThreshold_indices:
+            lowbnd = max(0, i - self.filterOrder)
+            uppbnd = min(i + self.filterOrder + 1, numSamples)
+            filteredSignal[i] = np.median(signal[lowbnd:uppbnd])
 
         return filteredSignal
 
