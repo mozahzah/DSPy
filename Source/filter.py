@@ -47,6 +47,18 @@ class filter:
             filteredSignal[i] = np.sum(window * gaussian_kernel)
         
         return filteredSignal
+    
+    def get_median_filtered_signal(self, signal, threshold):
+        numSamples = len(signal)
+        supraThreshold_indices = np.where(signal > threshold)[0]
+        filteredSignal = signal.copy()
+
+        for idx in supraThreshold_indices:
+            lowbnd = max(0, idx - self.filterOrder)
+            uppbnd = min(idx + self.filterOrder + 1, numSamples)
+            filteredSignal[idx] = np.median(signal[lowbnd:uppbnd])
+
+        return filteredSignal
 
     def draw_filtered_signal(self, filteredSignal):
         time = np.arange(0, len(filteredSignal)/self.sampleRate, 1/self.sampleRate)
