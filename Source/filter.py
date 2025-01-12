@@ -5,6 +5,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+plt.style.use('dark_background')
+
 class filter:
 
     def __init__(self, sampleRate, filterOrder):
