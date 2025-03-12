@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-only
-# Copyright © Interactive Echoes. All rights reserved.
+# Copyright © mozahzah. All rights reserved.
 # Author: mozahzah
 
 import numpy as np
@@ -9,7 +9,7 @@ plt.style.use('dark_background')
 
 class oscillator:
 
-    def __init__(self,sampleRate):
+    def __init__(self, sampleRate):
         self.sampleRate = sampleRate
 
     def make_sine_signal(self, frequency, amplitude, phase, timeSecond, addNoise=False):
@@ -83,4 +83,4 @@ class oscillator:
 
         plt.xlabel("Time (seconds)")
         plt.ylabel("Amplitude")
-        plt.title("DSPy")
+        plt.title("DSPylab")

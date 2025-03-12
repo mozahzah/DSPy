@@ -1,4 +1,4 @@
-# DSPy
+# DSPylab
 
 A Python-based educational playground for creating, exploring, and visualizing digital signal processing (DSP) algorithms using NumPy, Matplotlib and Jupyter Notebook.  
 Perfect for interactive learning and experimentation with DSP concepts.
